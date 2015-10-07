@@ -1,0 +1,22 @@
+!!!
+%html
+  %head
+    %meta{ content: "text/html; charset=UTF-8", "http-equiv": "Content-Type" }
+    %title App
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': true
+    = javascript_include_tag 'application', 'data-turbolinks-track': true
+    = csrf_meta_tags
+  %body
+    %nav.navbar.navbar-static-top.navbar-inverse
+      .container
+        %nav.collapse.navbar-collapse#navbar
+          %a.navbar-brand{ href: "/" }
+            Флэшкарточкер
+          %ul.nav.navbar-nav.navbar-right
+            %li
+              = link_to "Все карточки", cards_path
+            %li
+              %a{ href: "#" }
+                Добавить карточку
+    .container
+      = yield
