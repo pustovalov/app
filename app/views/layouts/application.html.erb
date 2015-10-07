@@ -7,8 +7,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  
+<nav class="navbar navbar-static-top navbar-inverse">
+  <div class="container">
+    <nav id="navbar" class="collapse navbar-collapse">
+      <a class="navbar-brand" href="/">Флэшкарточкер</a>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Все карточки</a></li>
+        <li><a href="#">Добавить карточку</a></li>
+      </ul>
+    </nav>
+  </div>
+</nav>
 
-<%= yield %>
+<div class="container">
+  <%= yield %>
+</div>
 
 </body>
 </html>
