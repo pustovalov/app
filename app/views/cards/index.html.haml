@@ -1,0 +1,16 @@
+.row
+  - @cards.each do |card|
+    .col-sm-6.col-md-4
+      .thumbnail
+        .caption
+          %h3
+            = card.original_text
+          %p
+            %strong
+              Перевод:
+              
+            = card.translated_text
+          %p
+            %strong
+              Дата:
+            = card.review_date.strftime("%d/%m/%Y")
