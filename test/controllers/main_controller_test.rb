@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class MainControllerTest < ActionController::TestCase
   test "should get index" do

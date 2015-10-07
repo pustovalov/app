@@ -144,21 +144,21 @@ Style/EmptyLineBetweenDefs:
 Style/EmptyLinesAroundBlockBody:
   Description: Keeps track of empty lines around block bodies.
   Enabled: true
-  EnforcedStyle: empty_lines
+  EnforcedStyle: no_empty_lines
   SupportedStyles:
   - empty_lines
   - no_empty_lines
 Style/EmptyLinesAroundClassBody:
   Description: Keeps track of empty lines around class bodies.
   Enabled: true
-  EnforcedStyle: empty_lines
+  EnforcedStyle: no_empty_lines
   SupportedStyles:
   - empty_lines
   - no_empty_lines
 Style/EmptyLinesAroundModuleBody:
   Description: Keeps track of empty lines around module bodies.
   Enabled: true
-  EnforcedStyle: empty_lines
+  EnforcedStyle: no_empty_lines
   SupportedStyles:
   - empty_lines
   - no_empty_lines
