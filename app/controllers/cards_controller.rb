@@ -1,11 +1,10 @@
 class CardsController < ApplicationController
-  before_filter :prepare_card_form, only: [:new]
-  
   def index
     @cards = Card.all
   end
   
   def new
+    @card = Card.new
   end
   
   def create
@@ -43,10 +42,5 @@ class CardsController < ApplicationController
   private
     def card_params
       params.require(:card).permit(:original_text, :translated_text, :review_date)
-    end
-    
-  protected
-    def prepare_card_form
-      @card = Card.new
     end
 end
