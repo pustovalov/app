@@ -1,5 +1,5 @@
 class Card < ActiveRecord::Base
-  validates_uniqueness_of :original_text
+  validates :original_text, uniqueness: true
   validates_presence_of :original_text, :translated_text, :review_date
   validate :check_original_and_translated_text
   
