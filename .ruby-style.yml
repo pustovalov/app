@@ -18,6 +18,7 @@ AllCops:
   Exclude:
   - "vendor/**/*"
   - "db/schema.rb"
+  - "config/initializers/*"
   RunRailsCops: false
   DisplayCopNames: false
   DisplayStyleGuide: false

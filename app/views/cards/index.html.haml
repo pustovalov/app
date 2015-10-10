@@ -13,3 +13,6 @@
             %strong
               Дата:
             = card.review_date.strftime("%d/%m/%Y")
+          .buttons
+            = link_to "Редактировать", edit_card_path(card), class: "btn btn-sm btn-default"
+            = link_to "Удалить", card_path(card), class: "btn btn-sm btn-danger", method: :delete
