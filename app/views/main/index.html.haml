@@ -7,11 +7,13 @@
         = simple_form_for @card, url: "/check", method: "post"  do |f|
           .form-group
             = f.input :original_text, as: :hidden
-            = f.input :translated_text, label: "Перевод", input_html: { value: "" }
+            = f.input :translated_text,
+                      label: "Перевод",
+                      input_html: { value: ""}
           .form-group
             = f.button :submit, value: "Проверить"
         - if flash[:notice] or flash[:error]
-          %div.alert{class: flash[:notice] ? "alert-success" : "alert-danger"}
+          .alert{class: flash[:notice] ? "alert-success" : "alert-danger"}
             = flash[:notice]
             = flash[:error]
 - else
