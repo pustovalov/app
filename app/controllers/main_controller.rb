@@ -2,6 +2,7 @@ class MainController < ApplicationController
   def index
     @card = Card.expired.random
   end
+  
   def check
     @card = Card.where(original_text: params[:card][:original_text]).take
     user_text = params[:card][:translated_text]
