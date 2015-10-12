@@ -1,2 +1,21 @@
-%p
-  some text
+- unless @card.blank?
+  .row
+    .col-md-6.col-md-offset-3
+      .thumbnail.card
+        %h2
+          = @card.original_text
+        = simple_form_for @card, url: check_path, method: "post"  do |f|
+          .form-group
+            = f.input :original_text, as: :hidden
+            = f.input :translated_text,
+                      label: "Перевод",
+                      input_html: { value: ""}
+          .form-group
+            = f.button :submit, value: "Проверить"
+        - if flash[:notice] or flash[:error]
+          .alert{ class: flash[:notice] ? "alert-success" : "alert-danger" }
+            = flash[:notice]
+            = flash[:error]
+- else
+  %h2
+    Нету доступных карточек, приходи позже.
