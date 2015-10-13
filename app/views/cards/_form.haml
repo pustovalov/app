@@ -5,7 +5,5 @@
             label: "Дата пересмотра",
             as: :date,
             html5: true,
-            input_html: { 
-              value: (Time.zone.today + 3.days).strftime("%Y-%m-%d")
-            }
+            input_html: { value: (Time.zone.today + 3.days).strftime("%Y-%m-%d") }
   = f.button :submit, value: @card.new_record? ? "Добавить" : "Сохранить"
