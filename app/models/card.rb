@@ -11,8 +11,8 @@ class Card < ActiveRecord::Base
   }
   
   def sanitize_data
-    self.original_text = self.original_text.mb_chars.strip.downcase!
-    self.translated_text = self.translated_text.mb_chars.strip.downcase!
+    self.original_text = original_text.mb_chars.strip.downcase!
+    self.translated_text = translated_text.mb_chars.strip.downcase!
   end
 
   def check_original_and_translated_text
