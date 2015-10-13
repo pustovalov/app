@@ -10,7 +10,7 @@ describe Card do
       build :card, original_text: " Du ", translated_text: "dU "
     ).to be_invalid
   end
-  
+
   context "when check translation true" do
     it "check translation" do
       card = build(:card)
