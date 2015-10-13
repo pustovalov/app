@@ -1,12 +1,14 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe Card do
-  it 'has a valid factory' do
+  it "has a valid factory" do
     expect(build :card).to be_valid
   end
   
-  it 'should have different original and translated text' do
-    expect(build :card, original_text: " Du ", translated_text: "dU ").to be_invalid
+  it "should have different original and translated text" do
+    expect(
+      build :card, original_text: " Du ", translated_text: "dU "
+    ).to be_invalid
   end
   
   context "when check translation true" do

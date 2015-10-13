@@ -14,7 +14,7 @@ class Card < ActiveRecord::Base
     self.original_text = self.original_text.mb_chars.strip.downcase!
     self.translated_text = self.translated_text.mb_chars.strip.downcase!
   end
-  
+
   def check_original_and_translated_text
     if original_text == translated_text
       errors.add(:translated_text, "Не может быть одинаковым")
