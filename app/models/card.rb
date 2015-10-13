@@ -8,9 +8,14 @@ class Card < ActiveRecord::Base
   scope :random, -> {
     order("RANDOM()").first
   }
+  
   def check_original_and_translated_text
     if original_text.mb_chars.downcase == translated_text.mb_chars.downcase
-      errors.add(:translated_text, "Не может быть одинаковым") 
+      errors.add(:translated_text, "Не может быть одинаковым")
     end
+  end
+  
+  def check_translation(text)
+    translated_text == text
   end
 end
