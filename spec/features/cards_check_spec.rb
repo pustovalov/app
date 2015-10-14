@@ -2,7 +2,6 @@ require "rails_helper"
 
 feature "Check cards" do
   context "cards are available for training" do
-
     let!(:card1) { create(:card) }
     let!(:card2) { create(:card, original_text: "someword", translated_text: "you") }
 
