@@ -1,0 +1,31 @@
+# SQLite version 3.x
+#   gem install sqlite3
+#
+#   Ensure the SQLite 3 gem is defined in your Gemfile
+#   gem 'sqlite3'
+#
+sqlite: &sqlite
+  adapter: sqlite3
+  database: db/<%= Rails.env %>.sqlite3
+  
+postgresql: &postgresql
+  adapter: postgresql
+  username: postgres
+  password:
+  database: travis_ci_test
+  min_messages: ERROR
+  
+defaults: &defaults
+  pool: 5
+  timeout: 5000
+  host: localhost
+  <<: *<%= ENV['DB'] || "postgresql" %>
+
+development:
+  <<: *defaults
+ 
+test:
+  <<: *defaults
+ 
+production:
+  <<: *defaults

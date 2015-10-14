@@ -11,7 +11,7 @@
                       label: "Перевод",
                       input_html: { value: ""}
           .form-group
-            = f.button :submit, value: "Проверить"
+            = f.button :submit, value: "Проверить", class: "ac-check-submit"
         - if flash[:notice] or flash[:error]
           .alert{ class: flash[:notice] ? "alert-success" : "alert-danger" }
             = flash[:notice]
