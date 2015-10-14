@@ -2,10 +2,10 @@ require "rails_helper"
 
 feature "Check cards" do
   context "cards are available for training" do
-    
+
     let!(:card1) { create(:card) }
     let!(:card2) { create(:card, original_text: "someword", translated_text: "you") }
-    
+
     before do
       visit root_path
     end
@@ -15,13 +15,13 @@ feature "Check cards" do
     end
 
     scenario "enter valid translation" do
-      fill_in 'card_translated_text', with: "you"
+      fill_in "card_translated_text", with: "you"
       find(".ac-check-submit").click
       expect(page).to have_content "Правильно"
     end
 
     scenario "enter invalid translation" do
-      fill_in 'card_translated_text', with: "132"
+      fill_in "card_translated_text", with: "132"
       find(".ac-check-submit").click
       expect(page).to have_content "Не правильно"
     end
