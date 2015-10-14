@@ -12,7 +12,7 @@ postgresql: &postgresql
   adapter: postgresql
   username: postgres
   password:
-  database: myapp_<%= Rails.env %>
+  database: travis_ci_test
   min_messages: ERROR
   
 defaults: &defaults
