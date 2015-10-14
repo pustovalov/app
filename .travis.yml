@@ -4,7 +4,3 @@ rvm:
   
 env:
   - DB=sqlite
-  
-sqlite: &sqlite
-  adapter: sqlite3
-  database: db/<%= Rails.env %>.sqlite3
