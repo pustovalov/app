@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "Check cards" do
-  
+
   context "cards are available for training" do
 
     before do
