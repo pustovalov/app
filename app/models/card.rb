@@ -1,11 +1,16 @@
 class Card < ActiveRecord::Base
-  validates :original_text, uniqueness: true
-  validates_presence_of :original_text, :translated_text, :review_date
+  belongs_to :user
+  
   validate :check_original_and_translated_text
+  validates :original_text, uniqueness: true
+  validates_presence_of :original_text, :translated_text, :review_date, :user
+  
   before_validation :sanitize_data
+  
   scope :expired, -> {
     where("review_date <= ?", Time.zone.today)
   }
+  
   scope :random, -> {
     order("RANDOM()").first
   }
