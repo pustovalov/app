@@ -3,6 +3,7 @@ FactoryGirl.define do
     original_text "du"
     translated_text "you"
     review_date { Time.zone.now - 5.days }
+    association :user, factory: :user
 
     trait :not_expired do
       review_date { Time.zone.now + 5.days }
