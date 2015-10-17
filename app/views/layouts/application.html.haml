@@ -11,11 +11,11 @@
       .container
         %nav.collapse.navbar-collapse#navbar
           %a.navbar-brand{ href: "/" }
-            Флэшкарточкер
+            Flashcards
           %ul.nav.navbar-nav.navbar-right
             %li
-              = link_to "Все карточки", cards_path
+              = link_to "All cards", cards_path
             %li
-              = link_to "Добавить карточку", new_card_path
+              = link_to "Add card", new_card_path
     .container
       = yield

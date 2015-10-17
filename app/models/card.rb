@@ -22,7 +22,7 @@ class Card < ActiveRecord::Base
 
   def check_original_and_translated_text
     if original_text == translated_text
-      errors.add(:translated_text, "Не может быть одинаковым")
+      errors.add(:translated_text, "Must be different")
     end
   end
 
