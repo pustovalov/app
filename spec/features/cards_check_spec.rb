@@ -16,13 +16,13 @@ feature "Check cards" do
     scenario "enter valid translation" do
       fill_in "card_translated_text", with: "you"
       find(".ac-check-submit").click
-      expect(page).to have_content "Правильно"
+      expect(page).to have_content "Correct"
     end
 
     scenario "enter invalid translation" do
       fill_in "card_translated_text", with: "132"
       find(".ac-check-submit").click
-      expect(page).to have_content "Не правильно"
+      expect(page).to have_content "Wrong"
     end
   end
 
@@ -36,7 +36,7 @@ feature "Check cards" do
     end
 
     scenario "no available cards" do
-      expect(page).to have_content "Нету доступных карточек, приходи позже."
+      expect(page).to have_content "You don't have enough words. Add them via \"Add card\""
     end
   end
 end
