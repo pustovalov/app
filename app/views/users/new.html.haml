@@ -1,0 +1,13 @@
+.row
+  .col-md-6.col-md-offset-3
+    %h2
+      Registration
+      
+    = simple_form_for @user do |f|
+      = f.input :email, label: "Email"
+      = f.input :password, label: "Password"
+      = f.button :submit, value: "Sign up"
+      
+      - if flash[:error]
+        .alert{ class: "alert-danger" }
+          = flash[:error]
