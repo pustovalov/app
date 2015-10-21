@@ -1,0 +1,13 @@
+.row
+  .container
+    %h2
+      Settings
+      
+    %h3
+      Email:
+      %strong
+        #{current_user.email}
+        
+    .btn-group
+      = link_to "Change Email", edit_user_path(current_user, change: "email"), { class: "btn btn-default" }
+      = link_to "Change Password", edit_user_path(current_user, change: "password"), { class: "btn btn-default" }

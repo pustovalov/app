@@ -15,8 +15,38 @@ class UsersController < ApplicationController
     end
   end
   
+  def settings
+    render template: "users/settings"
+  end
+  
+  def edit
+  end
+  
+  def update
+    password     = params[:user][:password]
+    new_password = params[:user][:new_password]
+    email        = params[:user][:email]
+    
+    if User.authenticate(current_user.email, password)
+      if email
+        current_user.password = password 
+        current_user.email = email 
+        current_user.save
+        flash[:success] = 'Email was successfully updated.'
+      else
+        current_user.password = new_password
+        current_user.save
+        flash[:success] = 'Password was successfully updated.'
+      end
+      redirect_to settings_path
+    else
+      flash[:error] = "Wrong password"
+      redirect_to :back
+    end
+  end
+  
   private
     def user_params
-      params.require(:user).permit(:email, :password)
+      params.require(:user).permit(:email, :password, :new_password)
     end
 end
