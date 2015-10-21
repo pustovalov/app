@@ -12,10 +12,6 @@
                       input_html: { value: ""}
           .form-group
             = f.button :submit, value: "Check", class: "ac-check-submit"
-        - if flash[:notice] or flash[:error]
-          .alert{ class: flash[:notice] ? "alert-success" : "alert-danger" }
-            = flash[:notice]
-            = flash[:error]
 - else
   %h2
     You don't have enough words. Add them via "Add card"
