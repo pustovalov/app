@@ -7,3 +7,6 @@
       = f.input :email, label: "Email"
       = f.input :password, label: "Password"
       = f.button :submit, value: "Log In"
+    
+      
+    = link_to "Login via FB", auth_at_provider_path(provider: :facebook)
