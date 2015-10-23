@@ -119,7 +119,8 @@ Rails.application.config.sorcery.configure do |config|
   config.facebook.secret = "#{Rails.application.secrets.sorcery_facebook_secret}"
   config.facebook.callback_url = "#{Rails.application.secrets.sorcery_facebook_callback_url}"
   config.facebook.user_info_mapping = {email: "email"}
-  config.facebook.access_permissions = ["email"]
+  config.facebook.user_info_path = "me?fields=email"
+  config.facebook.scope = "email"
   config.facebook.display = "popup"
   config.facebook.api_version = "v2.5"
   #
@@ -459,5 +460,5 @@ Rails.application.config.sorcery.configure do |config|
 
   # This line must come after the 'user config' block.
   # Define which model authenticates with sorcery.
-  config.user_class = "User"
+  config.user_class = User
 end
