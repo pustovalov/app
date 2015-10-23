@@ -76,7 +76,7 @@ Rails.application.config.sorcery.configure do |config|
   # What providers are supported by this app, i.e. [:twitter, :facebook, :github, :linkedin, :xing, :google, :liveid, :salesforce] .
   # Default: `[]`
   #
-  config.external_providers = [:facebook]
+  config.external_providers = [:facebook, :twitter]
 
 
   # You can change it by your local ca_file. i.e. '/etc/pki/tls/certs/ca-bundle.crt'
@@ -110,10 +110,10 @@ Rails.application.config.sorcery.configure do |config|
   # Twitter will not accept any requests nor redirect uri containing localhost,
   # make sure you use 0.0.0.0:3000 to access your app in development
   #
-  # config.twitter.key = ""
-  # config.twitter.secret = ""
-  # config.twitter.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=twitter"
-  # config.twitter.user_info_mapping = {:email => "screen_name"}
+  config.twitter.key = "#{Rails.application.secrets.sorcery_twitter_key}"
+  config.twitter.secret = "#{Rails.application.secrets.sorcery_twitter_secret}"
+  config.twitter.callback_url = "#{Rails.application.secrets.sorcery_twitter_callback_url}"
+  config.twitter.user_info_mapping = {email: "email"}
   #
   config.facebook.key = "#{Rails.application.secrets.sorcery_facebook_key}"
   config.facebook.secret = "#{Rails.application.secrets.sorcery_facebook_secret}"
@@ -460,5 +460,5 @@ Rails.application.config.sorcery.configure do |config|
 
   # This line must come after the 'user config' block.
   # Define which model authenticates with sorcery.
-  config.user_class = User
+  config.user_class = "User"
 end

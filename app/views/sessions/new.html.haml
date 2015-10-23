@@ -6,7 +6,9 @@
     = simple_form_for :user, url: sessions_path do |f|
       = f.input :email, label: "Email"
       = f.input :password, label: "Password"
-      = f.button :submit, value: "Log In"
+      .text-center
+        = f.button :submit, value: "Log In"
     
-      
-    = link_to "Login via FB", auth_at_provider_path(provider: :facebook)
+    .login-button-wrapper
+      %a.login-button.is-facebook{ href: auth_at_provider_path(provider: :facebook) }
+      %a.login-button.is-twitter{ href: auth_at_provider_path(provider: :twitter) }

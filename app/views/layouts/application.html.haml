@@ -29,9 +29,10 @@
             
           %ul.nav.navbar-nav.navbar-right
             - if current_user
-              %li
-                %p.navbar-text
-                  = current_user.email
+              - if current_user.email
+                %li
+                  %p.navbar-text
+                    = current_user.email
               %li
                 = link_to "Settings", settings_path
               %li

@@ -15,3 +15,24 @@
     margin-bottom: 0;
   }
 }
+
+.login-button-wrapper {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.login-button {
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  background-size: 100% 100%;
+  
+  &.is-facebook {
+    background-image: image-url("facebook-logo.svg");
+  }
+  
+  &.is-twitter {
+    margin-left: 10px;
+    background-image: image-url("twitter-logo.svg");
+  }
+}

@@ -6,5 +6,10 @@
     = simple_form_for @user do |f|
       = f.input :email, label: "Email"
       = f.input :password, label: "Password"
-      = f.button :submit, value: "Sign up"
+      .text-center
+        = f.button :submit, value: "Sign up"
+      
+    .login-button-wrapper
+      %a.login-button.is-facebook{ href: auth_at_provider_path(provider: :facebook) }
+      %a.login-button.is-twitter{ href: auth_at_provider_path(provider: :twitter) }
       
