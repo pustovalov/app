@@ -3,6 +3,7 @@
     = f.input :email, label: "Email"
     = f.input :password, label: "Password"
   - else
-    = f.input :password, label: "Current password"
+    - if current_user.crypted_password
+      = f.input :password, label: "Current password"
     = f.input :new_password, label: "New Password", required: true
   = f.button :submit, value: "Change"

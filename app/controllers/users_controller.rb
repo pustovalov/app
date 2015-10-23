@@ -27,13 +27,16 @@ class UsersController < ApplicationController
     new_password = params[:user][:new_password]
     email        = params[:user][:email]
     
-    if User.authenticate(current_user.email, password)
+    if User.authenticate(current_user.email, password) || current_user.external?
       if email
         current_user.password = password 
         current_user.email = email 
         current_user.save
         flash[:success] = 'Email was successfully updated.'
       else
+        if current_user.external? && email
+          current_user.email = email
+        end
         current_user.password = new_password
         current_user.save
         flash[:success] = 'Password was successfully updated.'
