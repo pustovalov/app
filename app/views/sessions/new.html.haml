@@ -7,7 +7,7 @@
       = f.input :email, label: "Email"
       = f.input :password, label: "Password"
       .text-center
-        = f.button :submit, value: "Log In"
+        = f.button :submit, value: "Log In", class: "ac-login-submit"
     
     .login-button-wrapper
       %a.login-button.is-facebook{ href: auth_at_provider_path(provider: :facebook) }
