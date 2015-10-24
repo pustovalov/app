@@ -8,9 +8,9 @@ class MainController < ApplicationController
     translated_text = params[:card][:translated_text]
     @card.update(review_date: Time.zone.today + 3.days)
     if @card.check_translation(translated_text)
-      flash[:notice] = "Правильно"
+      flash[:notice] = "Correct"
     else
-      flash[:error] = "Не правильно"
+      flash[:error] = "Wrong"
     end
     redirect_to action: "index"
   end

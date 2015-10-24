@@ -7,12 +7,12 @@
             = card.original_text
           %p
             %strong
-              Перевод:
+              Translation:
             = card.translated_text
           %p
             %strong
-              Дата:
+              Review Date:
             = card.review_date.strftime("%d/%m/%Y")
           .buttons
-            = link_to "Редактировать", edit_card_path(card), class: "btn btn-sm btn-default"
-            = link_to "Удалить", card_path(card), class: "btn btn-sm btn-danger", method: :delete
+            = link_to "Edit", edit_card_path(card), class: "btn btn-sm btn-default"
+            = link_to "Delete", card_path(card), class: "btn btn-sm btn-danger", method: :delete
