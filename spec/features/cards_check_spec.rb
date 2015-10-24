@@ -2,22 +2,20 @@ require "rails_helper"
 
 describe "Check cards" do
   let(:password) { attributes_for(:user)[:password] }
-  let(:user) { create(:user) }
+  let!(:user) { create(:user) }
+  let!(:card1)  { create(:card) }
+  let!(:card2) { create(:card, original_text: "someword", translated_text: "you") }
   
   before do
     login user, password
   end
   
-  context "cards are available for training" do
-    let(:card1)  { user.cards.create(build(:card).attributes) }
-    let(:card2) { user.cards.create(build(:card, original_text: "someword", translated_text: "you").attributes) }
-
+  context "are available for training" do
     scenario "opens successfully" do
       expect(page.status_code).to be 200
     end
 
     scenario "enter valid translation" do
-      # byebug
       fill_in "card_translated_text", with: "you"
       find(".ac-check-submit").click
       expect(page).to have_content "Correct"
@@ -30,8 +28,10 @@ describe "Check cards" do
     end
   end
 
-  context "cards are not available for training" do
+  context "are not available for training" do
+    
     before do
+      User.find(user.id).cards.all.destroy_all
       visit root_path
     end
 

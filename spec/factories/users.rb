@@ -4,7 +4,15 @@ FactoryGirl.define do
   end
   
   factory :user do
-    email
+    id 1
+    email "3123131@gmail.com"
     password "31231313123213dasdas"
+    initialize_with { User.where(id: id).first_or_create }
   end
+  
+  trait :random_email do
+    email
+  end
+  
+  factory :random_email, traits: [:random_email]
 end
