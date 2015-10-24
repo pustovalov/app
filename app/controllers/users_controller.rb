@@ -32,14 +32,14 @@ class UsersController < ApplicationController
         current_user.password = password
         current_user.email = email
         current_user.save
-        flash[:success] = 'Email was successfully updated.'
+        flash[:success] = "Email was successfully updated."
       else
         if current_user.external? && email
           current_user.email = email
         end
         current_user.password = new_password
         current_user.save
-        flash[:success] = 'Password was successfully updated.'
+        flash[:success] = "Password was successfully updated."
       end
       redirect_to settings_path
     else
@@ -49,6 +49,7 @@ class UsersController < ApplicationController
   end
 
   private
+
     def user_params
       params.require(:user).permit(:email, :password, :new_password)
     end
