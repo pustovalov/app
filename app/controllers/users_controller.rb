@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
-  
+
   def new
     @user = User.new
   end
-  
+
   def create
     @user = User.new(user_params)
     if @user.save
@@ -14,23 +14,23 @@ class UsersController < ApplicationController
       render "new"
     end
   end
-  
+
   def settings
     render template: "users/settings"
   end
-  
+
   def edit
   end
-  
+
   def update
     password     = params[:user][:password]
     new_password = params[:user][:new_password]
     email        = params[:user][:email]
-    
+
     if User.authenticate(current_user.email, password) || current_user.external?
       if email
-        current_user.password = password 
-        current_user.email = email 
+        current_user.password = password
+        current_user.email = email
         current_user.save
         flash[:success] = 'Email was successfully updated.'
       else
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
       redirect_to :back
     end
   end
-  
+
   private
     def user_params
       params.require(:user).permit(:email, :password, :new_password)
