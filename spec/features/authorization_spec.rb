@@ -6,11 +6,11 @@ describe "Authorization" do
   before do
     visit root_path
   end
-  
+
   scenario "opens successfully" do
     expect(page.status_code).to be 200
   end
-  
+
   describe "sign up" do
     scenario "when valid" do
       visit sign_up_path
@@ -19,7 +19,7 @@ describe "Authorization" do
       find(".ac-signup-submit").click
       expect(page).to have_content "Log Out"
     end
-    
+
     scenario "when no valid" do
       visit sign_up_path
       fill_in "user_email", with: "11111"
@@ -28,7 +28,7 @@ describe "Authorization" do
       expect(page).to have_content "is invalid"
     end
   end
-  
+
   describe "login in" do
     scenario "when valid" do
       visit log_in_path
@@ -37,7 +37,7 @@ describe "Authorization" do
       find(".ac-login-submit").click
       expect(page).to have_content "Log Out"
     end
-    
+
     scenario "when not valid" do
       visit log_in_path
       fill_in "user_email", with: "1231323"
@@ -46,12 +46,12 @@ describe "Authorization" do
       expect(page).to have_content "E-mail and/or password is incorrect."
     end
   end
-  
+
   describe "login out" do
     before do
       login user, password
     end
-    
+
     scenario "when valid" do
       click_link "Log Out"
       expect(page).to have_content "See you!"

@@ -5,11 +5,11 @@ describe "Check cards" do
   let!(:user) { create(:user) }
   let!(:card1)  { create(:card) }
   let!(:card2) { create(:card, original_text: "someword", translated_text: "you") }
-  
+
   before do
     login user, password
   end
-  
+
   context "are available for training" do
     scenario "opens successfully" do
       expect(page.status_code).to be 200
@@ -29,7 +29,7 @@ describe "Check cards" do
   end
 
   context "are not available for training" do
-    
+
     before do
       User.find(user.id).cards.all.destroy_all
       visit root_path
