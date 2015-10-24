@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe "Authorization" do  
+describe "Authorization" do
   let(:password) { attributes_for(:user)[:password] }
   let!(:user) { create(:user) }
   before do

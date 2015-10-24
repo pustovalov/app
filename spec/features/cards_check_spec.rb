@@ -29,7 +29,6 @@ describe "Check cards" do
   end
 
   context "are not available for training" do
-
     before do
       User.find(user.id).cards.all.destroy_all
       visit root_path
