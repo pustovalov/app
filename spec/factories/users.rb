@@ -4,7 +4,7 @@ FactoryGirl.define do
   end
 
   factory :user do
-    id 1
+    id 99999
     email "3123131@gmail.com"
     password "31231313123213dasdas"
     initialize_with { User.where(id: id).first_or_create }

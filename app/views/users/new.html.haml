@@ -2,14 +2,13 @@
   .col-md-6.col-md-offset-3
     %h2
       Registration
-      
+
     = simple_form_for @user do |f|
       = f.input :email, label: "Email"
       = f.input :password, label: "Password"
       .text-center
         = f.button :submit, value: "Sign up", class: "ac-signup-submit"
-      
+
     .login-button-wrapper
       %a.login-button.is-facebook{ href: auth_at_provider_path(provider: :facebook) }
       %a.login-button.is-twitter{ href: auth_at_provider_path(provider: :twitter) }
-      
