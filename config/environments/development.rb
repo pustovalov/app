@@ -40,6 +40,7 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
   config.paperclip_defaults = {
     storage: :s3,
+    s3_region: "#{Rails.application.secrets.aws_region}",
     s3_credentials: {
       bucket: "#{Rails.application.secrets.s3_bucket_name}",
       access_key_id: "#{Rails.application.secrets.aws_access_key_id}",

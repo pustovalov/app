@@ -26,10 +26,8 @@ gem 'haml', '~> 4.0.7'
 gem 'simple_form'
 gem 'sorcery'
 gem 'email_validator'
-gem 'paperclip', '~> 4.3'
-# http://ruby.awsblog.com/post/TxFKSK2QJE6RPZ/Upcoming-Stable-Release-of-AWS-SDK-for-Ruby-Version-2
-gem 'aws-sdk-v1'
-gem 'aws-sdk', '~> 2'
+gem 'paperclip', github: 'thoughtbot/paperclip', branch: 'master'
+gem 'aws-sdk', '>= 2.0.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
