@@ -1,6 +1,8 @@
 class Card < ActiveRecord::Base
   belongs_to :user
-  has_attached_file :image, styles: { medium: "300x300" }, default_url: "/images/:style/card-default-image.jpg"
+  has_attached_file :image,
+                    styles: { medium: "300x300" },
+                    default_url: "/images/:style/card-default-image.jpg"
 
   validate :check_original_and_translated_text
   validates :original_text, uniqueness: true
