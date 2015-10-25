@@ -9,6 +9,8 @@
             %strong
               Translation:
             = card.translated_text
+          .card-image
+            = image_tag card.image.url(:medium)
           %p
             %strong
               Review Date:

@@ -1,9 +1,12 @@
 class Card < ActiveRecord::Base
   belongs_to :user
+  has_attached_file :image, styles: { medium: "300x300" }, default_url: "/images/:style/card-default-image.jpg"
 
   validate :check_original_and_translated_text
   validates :original_text, uniqueness: true
   validates :original_text, :translated_text, :review_date, :user, presence: true
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+  validates_attachment_file_name :image, matches: [/png\Z/, /jpe?g\Z/]
 
   before_validation :sanitize_data
 
