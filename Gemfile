@@ -26,6 +26,8 @@ gem 'haml', '~> 4.0.7'
 gem 'simple_form'
 gem 'sorcery'
 gem 'email_validator'
+gem 'paperclip', github: 'thoughtbot/paperclip', branch: 'master'
+gem 'aws-sdk', '>= 2.0.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -1,6 +1,7 @@
-= simple_form_for @card do |f|
+= simple_form_for @card, url: cards_path do |f|
   = f.input :original_text, label: "Word"
   = f.input :translated_text, label: "Translation"
+  = f.input :image, as: :file, input_html: { accept: "image/*" }
   = f.input :review_date,
             label: "Review Date",
             as: :date,

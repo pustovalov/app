@@ -30,6 +30,39 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
+-- Name: authentications; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE authentications (
+    id integer NOT NULL,
+    user_id integer NOT NULL,
+    provider character varying NOT NULL,
+    uid character varying NOT NULL,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: authentications_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE authentications_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: authentications_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE authentications_id_seq OWNED BY authentications.id;
+
+
+--
 -- Name: cards; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -40,7 +73,11 @@ CREATE TABLE cards (
     review_date timestamp without time zone,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
-    user_id integer
+    user_id integer,
+    image_file_name character varying,
+    image_content_type character varying,
+    image_file_size integer,
+    image_updated_at timestamp without time zone
 );
 
 
@@ -81,7 +118,9 @@ CREATE TABLE users (
     email character varying,
     password character varying,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    salt character varying,
+    crypted_password character varying
 );
 
 
@@ -108,6 +147,13 @@ ALTER SEQUENCE users_id_seq OWNED BY users.id;
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY authentications ALTER COLUMN id SET DEFAULT nextval('authentications_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY cards ALTER COLUMN id SET DEFAULT nextval('cards_id_seq'::regclass);
 
 
@@ -116,6 +162,14 @@ ALTER TABLE ONLY cards ALTER COLUMN id SET DEFAULT nextval('cards_id_seq'::regcl
 --
 
 ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
+
+
+--
+-- Name: authentications_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY authentications
+    ADD CONSTRAINT authentications_pkey PRIMARY KEY (id);
 
 
 --
@@ -135,10 +189,24 @@ ALTER TABLE ONLY users
 
 
 --
+-- Name: index_authentications_on_provider_and_uid; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_authentications_on_provider_and_uid ON authentications USING btree (provider, uid);
+
+
+--
 -- Name: index_cards_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE INDEX index_cards_on_user_id ON cards USING btree (user_id);
+
+
+--
+-- Name: index_users_on_email; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_users_on_email ON users USING btree (email);
 
 
 --
@@ -159,4 +227,10 @@ INSERT INTO schema_migrations (version) VALUES ('20151007080610');
 INSERT INTO schema_migrations (version) VALUES ('20151015064519');
 
 INSERT INTO schema_migrations (version) VALUES ('20151015082845');
+
+INSERT INTO schema_migrations (version) VALUES ('20151020063304');
+
+INSERT INTO schema_migrations (version) VALUES ('20151021082537');
+
+INSERT INTO schema_migrations (version) VALUES ('20151024104651');
 

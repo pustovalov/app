@@ -7,6 +7,8 @@
         = simple_form_for @card, url: check_path, method: "post"  do |f|
           .form-group
             = f.input :original_text, as: :hidden
+            .card-image
+              = image_tag @card.image.url(:medium)
             = f.input :translated_text,
                       label: "Translation",
                       input_html: { value: ""}
