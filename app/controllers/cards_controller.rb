@@ -8,17 +8,25 @@ class CardsController < ApplicationController
   end
 
   def create
-    @card = Card.new(card_params.merge(user: current_user))
-
-    if @card.save
-      redirect_to cards_path
+    @deck = Deck.find_by(id: params[:card][:deck])
+    if !@deck
+      flash[:error] = "Deck can't be blank"
+      redirect_to new_card_path
     else
-      render 'new'
+      @card = Card.new(card_params.merge(user: current_user, deck: @deck))
+
+      if @card.save
+        redirect_to cards_path
+      else
+        render 'new'
+      end
     end
+
 
   end
 
   def edit
+    @decks = Deck.all
     @card = Card.find(params[:id])
   end
 
@@ -41,6 +49,6 @@ class CardsController < ApplicationController
 
 private
   def card_params
-    params.require(:card).permit(:original_text, :translated_text, :review_date, :image)
+    params.require(:card).permit(:original_text, :translated_text, :review_date, :image, :deck)
   end
 end

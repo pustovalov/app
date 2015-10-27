@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get "settings", to: "users#settings"
 
   get "decks", to: "decks#index"
+  get "deck/current", to: "decks#current"
 
   post "oauth/callback", to: "oauths#callback"
   get "oauth/callback", to: "oauths#callback"

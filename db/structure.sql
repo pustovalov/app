@@ -77,7 +77,8 @@ CREATE TABLE cards (
     image_file_name character varying,
     image_content_type character varying,
     image_file_size integer,
-    image_updated_at timestamp without time zone
+    image_updated_at timestamp without time zone,
+    deck_id integer
 );
 
 
@@ -109,7 +110,8 @@ CREATE TABLE decks (
     name text,
     current boolean,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    user_id integer
 );
 
 
@@ -282,4 +284,8 @@ INSERT INTO schema_migrations (version) VALUES ('20151021082537');
 INSERT INTO schema_migrations (version) VALUES ('20151024104651');
 
 INSERT INTO schema_migrations (version) VALUES ('20151026084851');
+
+INSERT INTO schema_migrations (version) VALUES ('20151027063324');
+
+INSERT INTO schema_migrations (version) VALUES ('20151027063730');
 

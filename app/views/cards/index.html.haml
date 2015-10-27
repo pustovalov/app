@@ -11,6 +11,11 @@
             = card.translated_text
           .card-image
             = image_tag card.image.url(:medium)
+          - if card.deck
+            %p
+              %strong
+                Deck:
+              = card.deck.name
           %p
             %strong
               Review Date:

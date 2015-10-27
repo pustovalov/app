@@ -21,6 +21,10 @@ class Card < ActiveRecord::Base
     order("RANDOM()").first
   }
 
+  scope :current_deck, -> {
+    joins(:deck).where('current = ?', true)
+  }
+
   def sanitize_data
     self.original_text = original_text.mb_chars.strip.downcase!
     self.translated_text = translated_text.mb_chars.strip.downcase!
