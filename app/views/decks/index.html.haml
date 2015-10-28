@@ -18,5 +18,5 @@
           .buttons
             = link_to "Edit", edit_deck_path(deck), class: "btn btn-sm btn-default"
             - if !deck.current?
-              = link_to "Make current", deck_current_path(deck: deck), class: "btn btn-sm btn-default"
+              = link_to "Make current", deck_current_path(id: deck.id), class: "btn btn-sm btn-default"
             = link_to "Delete", deck_path(deck), class: "btn btn-sm btn-danger", method: :delete
