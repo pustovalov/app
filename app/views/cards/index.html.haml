@@ -1,6 +1,6 @@
-.row.cards
+.row.grid
   - @cards.each do |card|
-    .col-sm-6.col-md-4.card
+    .col-sm-6.col-md-4.element
       .thumbnail
         .caption
           %h3
@@ -11,6 +11,11 @@
             = card.translated_text
           .card-image
             = image_tag card.image.url(:medium)
+          - if card.deck
+            %p
+              %strong
+                Deck:
+              = card.deck.name
           %p
             %strong
               Review Date:

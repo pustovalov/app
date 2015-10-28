@@ -4,10 +4,22 @@ describe Card do
   it "has a valid factory" do
     expect(build :card).to be_valid
   end
-  
+
   it "should have different original and translated text" do
     expect(
       build :card, original_text: " Du ", translated_text: "dU "
+    ).to be_invalid
+  end
+
+  it "should have deck" do
+    expect(
+      build :card, :deck_nil
+    ).to be_invalid
+  end
+
+  it "should have user" do
+    expect(
+      build :card, :user_nil
     ).to be_invalid
   end
 
