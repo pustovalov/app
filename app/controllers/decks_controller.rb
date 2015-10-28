@@ -13,9 +13,8 @@ class DecksController < ApplicationController
     if @deck.save
       redirect_to decks_path
     else
-      render 'new'
+      render "new"
     end
-
   end
 
   def edit
@@ -28,7 +27,7 @@ class DecksController < ApplicationController
     if @deck.update(deck_params)
       redirect_to decks_path
     else
-      render 'edit'
+      render "edit"
     end
   end
 
@@ -55,6 +54,7 @@ class DecksController < ApplicationController
   end
 
 private
+
   def deck_params
     params.require(:deck).permit(:name, :current)
   end

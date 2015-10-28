@@ -6,5 +6,5 @@ class Deck < ActiveRecord::Base
   validates :name, uniqueness: true, presence: true
 
   default_scope { order(:id) }
-  scope :current, ->{ where current: true }
+  scope :current, -> { where current: true }
 end

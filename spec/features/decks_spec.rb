@@ -28,6 +28,6 @@ describe "Decks" do
 
   scenario "remove deck" do
     click_link("Delete")
-    expect(page).to have_css('.ac-deck', count: 0)
+    expect(page).to have_css(".ac-deck", count: 0)
   end
 end
