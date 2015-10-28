@@ -24,17 +24,22 @@ class CardsController < ApplicationController
   end
 
   def edit
-    @decks = Deck.all
     @card = Card.find(params[:id])
   end
 
   def update
-    @card = Card.find(params[:id])
-
-    if @card.update(card_params)
-      redirect_to cards_path
+    @deck = Deck.find_by(id: params[:card][:deck])
+    if !@deck
+      flash[:error] = "Deck can't be blank"
+      redirect_to new_card_path
     else
-      render 'edit'
+      @card = Card.find(params[:id])
+
+      if @card.update(card_params.merge(deck: @deck))
+        redirect_to cards_path
+      else
+        render "edit"
+      end
     end
   end
 
