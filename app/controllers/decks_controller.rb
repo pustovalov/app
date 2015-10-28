@@ -40,10 +40,7 @@ class DecksController < ApplicationController
   end
 
   def current
-    if @current_deck = Deck.current.take
-      @current_deck.current = false
-      @current_deck.save
-    end
+    Deck.where(current: true).update_all(current: false)
     @deck.current = true
     if !@deck.save
       flash[:error] = "Something wrong"
