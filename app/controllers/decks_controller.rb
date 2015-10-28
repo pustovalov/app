@@ -1,6 +1,6 @@
 class DecksController < ApplicationController
   def index
-    @decks = Deck.all
+    @decks = Deck.all.order(:id)
   end
 
   def new

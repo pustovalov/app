@@ -1,4 +1,7 @@
 class CardsController < ApplicationController
+
+  before_action :check_deck, only: [:create, :update]
+
   def index
     @cards = Card.all
   end
@@ -8,18 +11,12 @@ class CardsController < ApplicationController
   end
 
   def create
-    @deck = Deck.find_by(id: params[:card][:deck])
-    if !@deck
-      flash[:error] = "Deck can't be blank"
-      redirect_to new_card_path
-    else
-      @card = Card.new(card_params.merge(user: current_user, deck: @deck))
+    @card = Card.new(card_params.merge(user: current_user, deck: @deck))
 
-      if @card.save
-        redirect_to cards_path
-      else
-        render "new"
-      end
+    if @card.save
+      redirect_to cards_path
+    else
+      render "new"
     end
   end
 
@@ -28,18 +25,20 @@ class CardsController < ApplicationController
   end
 
   def update
+    @card = Card.find(params[:id])
+
+    if @card.update(card_params.merge(deck: @deck))
+      redirect_to cards_path
+    else
+      render "edit"
+    end
+  end
+
+  def check_deck
     @deck = Deck.find_by(id: params[:card][:deck])
     if !@deck
       flash[:error] = "Deck can't be blank"
       redirect_to new_card_path
-    else
-      @card = Card.find(params[:id])
-
-      if @card.update(card_params.merge(deck: @deck))
-        redirect_to cards_path
-      else
-        render "edit"
-      end
     end
   end
 
