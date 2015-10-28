@@ -1,6 +1,6 @@
 class MainController < ApplicationController
   def index
-    @card = Card.current_deck.expired.random.take || Card.expired.random
+    @card = Card.current_deck.expired.random.presence || Card.expired.random
   end
 
   def check

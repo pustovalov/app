@@ -42,4 +42,16 @@ describe "Check cards" do
       expect(page).to have_content "You don't have enough words. Add them via \"Add card\""
     end
   end
+
+  context "current deck" do
+    let!(:deck2) { create(:deck, :current, name: "current", id: "1231") }
+    let!(:card3)  { create(:card, original_text: "card from current deck", deck_id: "1231") }
+    before do
+      visit root_path
+    end
+
+    scenario "show card" do
+      expect(page).to have_content "card from current deck"
+    end
+  end
 end

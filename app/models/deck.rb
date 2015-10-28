@@ -3,8 +3,8 @@ class Deck < ActiveRecord::Base
   belongs_to :user
 
   validates_uniqueness_of :current, conditions: -> { where(current: true) }
-  validates :name, presence: true
+  validates :name, uniqueness: true, presence: true
 
-  default_scope { order(:id) } 
+  default_scope { order(:id) }
   scope :current, ->{ where current: true }
 end

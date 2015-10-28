@@ -9,5 +9,13 @@ FactoryGirl.define do
     trait :not_expired do
       review_date { Time.zone.now + 5.days }
     end
+
+    trait :deck_nil do
+      deck nil
+    end
+
+    trait :user_nil do
+      user nil
+    end
   end
 end
