@@ -22,7 +22,7 @@ class Card < ActiveRecord::Base
   }
 
   scope :current_deck, -> {
-    joins(:deck).where('current = ?', true)
+    joins(:deck).where("current = ?", true)
   }
 
   def sanitize_data
