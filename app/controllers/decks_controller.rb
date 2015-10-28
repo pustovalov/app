@@ -40,13 +40,11 @@ class DecksController < ApplicationController
   end
 
   def current
-    @current_deck = Deck.current.take
-    if @current_deck
+    if @current_deck = Deck.current.take
       @current_deck.current = false
       @current_deck.save
     end
     @deck.current = true
-    @deck.save
     if !@deck.save
       flash[:error] = "Something wrong"
     end
