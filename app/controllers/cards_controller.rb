@@ -18,11 +18,9 @@ class CardsController < ApplicationController
       if @card.save
         redirect_to cards_path
       else
-        render 'new'
+        render "new"
       end
     end
-
-
   end
 
   def edit
@@ -48,6 +46,7 @@ class CardsController < ApplicationController
   end
 
 private
+
   def card_params
     params.require(:card).permit(:original_text, :translated_text, :review_date, :image, :deck)
   end
