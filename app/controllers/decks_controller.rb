@@ -40,7 +40,7 @@ class DecksController < ApplicationController
   end
 
   def current
-    Deck.where(current: true).update_all(current: false)
+    Deck.current.update_all(current: false)
     @deck.current = true
     if !@deck.save
       flash[:error] = "Something wrong"
