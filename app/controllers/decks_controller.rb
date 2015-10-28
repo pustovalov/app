@@ -1,4 +1,6 @@
 class DecksController < ApplicationController
+  before_action :find_deck, only: [:update, :destroy, :edit]
+
   def index
     @decks = Deck.all.order(:id)
   end
@@ -18,12 +20,9 @@ class DecksController < ApplicationController
   end
 
   def edit
-    @deck = Deck.find(params[:id])
   end
 
   def update
-    @deck = Deck.find(params[:id])
-
     if @deck.update(deck_params)
       redirect_to decks_path
     else
@@ -32,10 +31,13 @@ class DecksController < ApplicationController
   end
 
   def destroy
-    @deck = Deck.find(params[:id])
     @deck.destroy
 
     redirect_to decks_path
+  end
+
+  def find_deck
+    @deck = Deck.find(params[:id])
   end
 
   def current
