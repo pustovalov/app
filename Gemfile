@@ -18,6 +18,7 @@ gem 'sorcery'
 gem 'email_validator'
 gem 'paperclip', github: 'thoughtbot/paperclip', branch: 'master'
 gem 'aws-sdk', '>= 2.0.0'
+gem 'figaro'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -46,4 +47,7 @@ group :test do
   gem 'factory_girl_rails'
   gem 'capybara'
 end
+
+# specify ruby version for heroku
+ruby "2.2.3"
 
