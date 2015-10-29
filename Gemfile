@@ -34,7 +34,7 @@ group :development, :test do
   gem 'pry'
   gem 'pry-rails'
   gem 'byebug'
-  gem 'brakeman', require: false
+  gem 'brakeman'
   gem 'parallel_tests'
 end
 
@@ -44,6 +44,7 @@ group :development do
 end
 
 group :test do
+  gem 'rake'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'capybara'
