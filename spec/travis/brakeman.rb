@@ -1,5 +1,5 @@
 require "brakeman"
-tracker = Brakeman.run app_path: "", quiet: false, interactive_ignore: true
+tracker = Brakeman.run app_path: "", quiet: false
 
 puts tracker.report
 if tracker.filtered_warnings.length === 0
