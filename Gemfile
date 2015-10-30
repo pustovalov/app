@@ -19,6 +19,10 @@ gem 'email_validator'
 gem 'paperclip', github: 'thoughtbot/paperclip', branch: 'master'
 gem 'aws-sdk', '>= 2.0.0'
 gem 'figaro'
+gem 'pry', require: false
+gem 'pry-rails', require: false
+gem 'pry-remote', require: false
+gem 'pry-coolline', require: false
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -31,10 +35,9 @@ group :production do
 end
 
 group :development, :test do
-  gem 'pry'
-  gem 'pry-rails'
   gem 'byebug'
   gem 'brakeman'
+  gem 'pry-byebug', require: false
   gem 'parallel_tests'
 end
 
