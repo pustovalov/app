@@ -1,6 +1,7 @@
 class Card < ActiveRecord::Base
   belongs_to :user
   belongs_to :deck
+  has_many :check, dependent: :destroy
   has_attached_file :image,
                     styles: { medium: "360x360" },
                     default_url: "/images/:style/card-default-image.jpg"
@@ -38,5 +39,10 @@ class Card < ActiveRecord::Base
 
   def check_translation(text)
     translated_text == text.mb_chars.strip.downcase!
+  end
+
+  def increase_date
+    self.review_date = Time.zone.today + 3.days
+    self.save
   end
 end

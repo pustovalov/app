@@ -102,6 +102,38 @@ ALTER SEQUENCE cards_id_seq OWNED BY cards.id;
 
 
 --
+-- Name: checks; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE checks (
+    id integer NOT NULL,
+    times_reviewed integer DEFAULT 0 NOT NULL,
+    losing_streak integer DEFAULT 0 NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: checks_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE checks_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: checks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE checks_id_seq OWNED BY checks.id;
+
+
+--
 -- Name: decks; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -195,6 +227,13 @@ ALTER TABLE ONLY cards ALTER COLUMN id SET DEFAULT nextval('cards_id_seq'::regcl
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY checks ALTER COLUMN id SET DEFAULT nextval('checks_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY decks ALTER COLUMN id SET DEFAULT nextval('decks_id_seq'::regclass);
 
 
@@ -219,6 +258,14 @@ ALTER TABLE ONLY authentications
 
 ALTER TABLE ONLY cards
     ADD CONSTRAINT cards_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: checks_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY checks
+    ADD CONSTRAINT checks_pkey PRIMARY KEY (id);
 
 
 --
@@ -288,4 +335,6 @@ INSERT INTO schema_migrations (version) VALUES ('20151026084851');
 INSERT INTO schema_migrations (version) VALUES ('20151027063324');
 
 INSERT INTO schema_migrations (version) VALUES ('20151027063730');
+
+INSERT INTO schema_migrations (version) VALUES ('20151110014740');
 
