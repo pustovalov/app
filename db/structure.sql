@@ -110,7 +110,9 @@ CREATE TABLE checks (
     times_reviewed integer DEFAULT 0 NOT NULL,
     losing_streak integer DEFAULT 0 NOT NULL,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    box integer DEFAULT 0 NOT NULL,
+    card_id integer
 );
 
 
@@ -337,4 +339,8 @@ INSERT INTO schema_migrations (version) VALUES ('20151027063324');
 INSERT INTO schema_migrations (version) VALUES ('20151027063730');
 
 INSERT INTO schema_migrations (version) VALUES ('20151110014740');
+
+INSERT INTO schema_migrations (version) VALUES ('20151111094037');
+
+INSERT INTO schema_migrations (version) VALUES ('20151111114118');
 
