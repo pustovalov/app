@@ -1,7 +1,7 @@
 class Card < ActiveRecord::Base
   belongs_to :user
   belongs_to :deck
-  has_many :check, dependent: :destroy
+  has_many :checks, dependent: :destroy
   has_attached_file :image,
                     styles: { medium: "360x360" },
                     default_url: "/images/:style/card-default-image.jpg"
