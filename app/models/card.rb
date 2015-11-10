@@ -40,9 +40,4 @@ class Card < ActiveRecord::Base
   def check_translation(text)
     translated_text == text.mb_chars.strip.downcase!
   end
-
-  def increase_date
-    self.review_date = Time.zone.today + 3.days
-    self.save
-  end
 end
