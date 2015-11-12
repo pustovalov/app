@@ -58,5 +58,4 @@ describe Check do
     card.reload
     expect(card.review_date).to eq(Time.zone.today + 12.hours)
   end
-
 end
