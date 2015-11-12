@@ -3,7 +3,7 @@ class Check < ActiveRecord::Base
 
   DELAYS = [12, 3*24, 7*24, 14*24, 31*24]
 
-  NUMBER_OF_FAILS = 3
+  NUMBER_OF_FAILS = 2
 
   def mark_correct!
     increment_wins
@@ -12,13 +12,13 @@ class Check < ActiveRecord::Base
   end
 
   def mark_incorrect!
-    if self.losing_streak <= NUMBER_OF_FAILS
+    if self.losing_streak < NUMBER_OF_FAILS
       increment_losses
     else
       reset_losses
     end
     self.set_review_date
-    self.save
+    self.save!
   end
 
   protected
@@ -29,17 +29,16 @@ class Check < ActiveRecord::Base
   end
 
   def increment_wins
+    if !self.times_reviewed.zero?
+      self.box          += 1
+    end
     self.times_reviewed += 1
     self.losing_streak   = 0
-    self.box            += 1
   end
 
   def reset_losses
     self.losing_streak   = 0
-    
-    if self.box != 1
-      self.box -= 1
-    end
+    self.box             = 1
   end
 
   def set_review_date
