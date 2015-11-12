@@ -5,7 +5,7 @@ class MainController < ApplicationController
 
   def check
     @card = Card.where(original_text: params[:card][:original_text]).take
-    @check = Check.find_or_create_by(card_id: @card.id)
+    @check = Check.find_or_create_by(card: @card)
     translated_text = params[:card][:translated_text]
     if @card.check_translation(translated_text)
       flash[:notice] = "Correct"

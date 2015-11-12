@@ -18,7 +18,7 @@ class Check < ActiveRecord::Base
       reset_losses
     end
     set_review_date
-    save!
+    save
   end
 
   protected
