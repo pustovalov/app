@@ -42,7 +42,7 @@ class Check < ActiveRecord::Base
   end
 
   def set_review_date
-    self.card.review_date = Time.zone.today + DELAYS[[DELAYS.count, box].min-1].hours
-    self.card.save
+    card.review_date = Time.zone.today + DELAYS[[DELAYS.count, box].min-1].hours
+    card.save
   end
 end
