@@ -1,6 +1,7 @@
 class Card < ActiveRecord::Base
   belongs_to :user
   belongs_to :deck
+  has_many :checks, dependent: :destroy
   has_attached_file :image,
                     styles: { medium: "360x360" },
                     default_url: "/images/:style/card-default-image.jpg"
@@ -37,6 +38,13 @@ class Card < ActiveRecord::Base
   end
 
   def check_translation(text)
-    translated_text == text.mb_chars.strip.downcase!
+    check = Check.find_or_create_by(card: self)
+    if translated_text == text.mb_chars.strip.downcase!
+      check.mark_correct!
+      true
+    else
+      check.mark_incorrect!
+      false
+    end
   end
 end

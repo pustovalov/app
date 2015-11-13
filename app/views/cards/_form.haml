@@ -8,5 +8,5 @@
             label: "Review Date",
             as: :date,
             html5: true,
-            input_html: { value: (Time.zone.today + 3.days).strftime("%Y-%m-%d") }
+            input_html: { value: (@card.new_record? ? Time.zone.today : @card.review_date).strftime("%Y-%m-%d") }
   = f.button :submit, value: @card.new_record? ? "Add" : "Update"
