@@ -1,7 +1,9 @@
 class Check < ActiveRecord::Base
   belongs_to :card
 
-  DELAYS = [12, 3 * 24, 7 * 24, 14 * 24, 31 * 24]
+  hours = [12, 3, 7, 14, 31]
+
+  DELAYS = hours.map{ |element| element == hours.first ? element : element * 24 }
 
   NUMBER_OF_FAILS = 2
 
