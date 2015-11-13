@@ -3,7 +3,7 @@ class Check < ActiveRecord::Base
 
   hours = [12, 3, 7, 14, 31]
 
-  DELAYS = hours.map{ |element| element == hours.first ? element : element * 24 }
+  DELAYS = hours.map { |element| element == hours.first ? element : element * 24 }
 
   NUMBER_OF_FAILS = 2
 
@@ -44,7 +44,7 @@ class Check < ActiveRecord::Base
   end
 
   def set_review_date
-    card.review_date = Time.zone.today + DELAYS[[DELAYS.count, box].min-1].hours
+    card.review_date = Time.zone.today + DELAYS[[DELAYS.count, box].min - 1].hours
     card.save
   end
 end
