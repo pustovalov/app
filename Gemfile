@@ -32,6 +32,7 @@ gem 'pry-coolline', require: false
 
 group :production do
   gem 'rails_12factor'
+  gem 'newrelic_rpm'
 end
 
 group :development, :test do
