@@ -23,6 +23,7 @@ gem 'pry', require: false
 gem 'pry-rails', require: false
 gem 'pry-remote', require: false
 gem 'pry-coolline', require: false
+gem 'bugsnag'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
