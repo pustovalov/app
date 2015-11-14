@@ -41,6 +41,7 @@ group :development, :test do
   gem 'brakeman'
   gem 'pry-byebug', require: false
   gem 'parallel_tests'
+  gem 'travis'
 end
 
 group :development do
@@ -53,8 +54,8 @@ group :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'capybara'
+  gem 'codeclimate-test-reporter', require: nil
 end
 
 # specify ruby version for heroku
 ruby "2.2.3"
-

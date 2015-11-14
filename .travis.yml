@@ -14,3 +14,7 @@ script:
   - ruby -rubygems spec/travis/brakeman.rb
   - bundle exec rake
 
+addons:
+  code_climate:
+    repo_token:
+      secure: "FaCnVYjczN6MobBI7h+F55pTuQaaSjEappGT6k1dhs8OUjKsZp/CDqxXK1rrRNRQLnCgMxWQpElCmG9SgrjGjj1Vo3d+uu1QCKmHgzBbnftJzJMgHNSAg3sWJRjSP0jp6xE3CNHxzYB9s2hgV98vK6g5Gydsvq3fEnSy9cdi9dbfcmKGueXiga7ErEtrZYTwwV3GWKyJDCV524ymFwNyUYcREtXKx/aKLufXVNLg/pKQcph25v/XcUjp7m59crAA/qiaR6PVl+beYy8t5/BAzA7aDnlW1dx9uFySNcWUZAtxhgxIyBGwsD/F1fyK/oSJSyEFbMRxEaac5m4rAFi0MzU51F0Ve4Qtmxq8k8fgbUGLKw30VMT0oE01yrlbSG17b3vikRhSMos2W4C7bkr7Ed/RzqxXjyZjbXdRUzhuPwzE4b0MIft5lLC5r4E1ATAf8u6Q9fLCSMMc6Duvh0B+a0oygdA1lWQ34KAzLibMqZzm+OzP59PF4nYEDyUng4VzVok1nfZ9zgohwhYffa/XeyFUw9fVk1rcqSb24nL/z48wfWwjvQ+ssVJTTmfNmHbVqo/sK+KPLjTNl0BK70xG+I3XGYF4017NAZH/Iu6tgLb8TWSFEh9N96I7HkJhMX94ySf1LuCJP94ucZgZqBDt04vH4lnp3goVHSn34f3y2eM="
