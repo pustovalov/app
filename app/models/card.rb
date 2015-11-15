@@ -39,12 +39,13 @@ class Card < ActiveRecord::Base
 
   def check_translation(text)
     check = Check.find_or_create_by(card: self)
-    if translated_text == text.mb_chars.strip.downcase!
+    typos = Text::Levenshtein.distance(translated_text, text.mb_chars.strip.downcase!)
+    if typos.zero?
       check.mark_correct!
-      true
+      { success: true, typos: typos }
     else
       check.mark_incorrect!
-      false
+      { success: false, typos: typos }
     end
   end
 end

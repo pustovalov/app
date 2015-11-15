@@ -26,6 +26,12 @@ describe "Check cards" do
       find(".ac-check-submit").click
       expect(page).to have_content "Wrong"
     end
+
+    scenario "enter invalid translation" do
+      fill_in "card_translated_text", with: "yo"
+      find(".ac-check-submit").click
+      expect(page).to have_content "Typos: 1"
+    end
   end
 
   context "are not available for training" do

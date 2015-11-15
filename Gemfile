@@ -24,6 +24,7 @@ gem 'pry-rails', require: false
 gem 'pry-remote', require: false
 gem 'pry-coolline', require: false
 gem 'bugsnag'
+gem 'text'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -37,9 +38,9 @@ group :production do
 end
 
 group :development, :test do
-  gem 'byebug'
+  gem 'byebug', '~> 8.0', '>= 8.0.1'
   gem 'brakeman'
-  gem 'pry-byebug', require: false
+  gem 'pry-byebug', '~> 3.2', require: false
   gem 'parallel_tests'
   gem 'travis'
 end
