@@ -47,4 +47,19 @@ Rails.application.configure do
       secret_access_key: "#{Rails.application.secrets.aws_secret_access_key}"
     }
   }
+
+  config.action_mailer.default_url_options = {
+    host: "localhost",
+    port: 3000
+  }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    authentication: :plain,
+    address: "smtp.mailgun.org",
+    port: 587,
+    domain: ENV["mailgun_domain"],
+    user_name: ENV["mailgun_user_name"],
+    password: ENV["mailgun_password"]
+  }
 end
