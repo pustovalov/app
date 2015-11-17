@@ -25,6 +25,7 @@ gem 'pry-remote', require: false
 gem 'pry-coolline', require: false
 gem 'bugsnag'
 gem 'text'
+gem 'whenever', require: false
 
 # Use Unicorn as the app server
 # gem 'unicorn'
