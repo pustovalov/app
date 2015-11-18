@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.4'
+gem 'rails', '4.2.5'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -26,6 +26,7 @@ gem 'pry-coolline', require: false
 gem 'bugsnag'
 gem 'text'
 gem 'whenever', require: false
+gem 'http_accept_language'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -56,7 +57,7 @@ group :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'capybara'
-  gem 'codeclimate-test-reporter', require: nil
+  gem 'codeclimate-test-reporter', require: false
 end
 
 # specify ruby version for heroku
