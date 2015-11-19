@@ -188,7 +188,8 @@ CREATE TABLE users (
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
     salt character varying,
-    crypted_password character varying
+    crypted_password character varying,
+    locale text DEFAULT 'en'::text NOT NULL
 );
 
 
@@ -345,4 +346,6 @@ INSERT INTO schema_migrations (version) VALUES ('20151111094037');
 INSERT INTO schema_migrations (version) VALUES ('20151111114118');
 
 INSERT INTO schema_migrations (version) VALUES ('20151112070524');
+
+INSERT INTO schema_migrations (version) VALUES ('20151118084852');
 
