@@ -1,0 +1,6 @@
+%h1
+  Reset Password
+
+= simple_form_for :user, url: password_resets_path do |f|
+  = f.input :email, label: "Email"
+  = f.button :submit, value: "Send reset instructions"

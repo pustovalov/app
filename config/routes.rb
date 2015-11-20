@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   resources :users
   resources :decks
   resources :sessions, only: [:new, :create, :destroy]
+  resources :password_resets, only: [:new, :create, :update, :edit]
+
+  post "password_resets/new"
+
   root "main#index"
   get "main/index"
 

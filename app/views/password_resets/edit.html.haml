@@ -1,0 +1,6 @@
+%h1
+  Choose a new password
+
+= simple_form_for @user, url: password_reset_path(@token) do |f|
+  = f.input :password, label: "New Password", required: true
+  = f.button :submit, value: "Set password"

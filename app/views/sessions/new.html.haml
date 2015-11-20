@@ -8,6 +8,7 @@
       = f.input :password, label: "Password"
       .text-center
         = f.button :submit, value: "Log In", class: "ac-login-submit"
+        = link_to "Forgot your password?", new_password_reset_path, class: "btn btn-default"
 
     .login-button-wrapper
       %a.login-button.is-facebook{ href: auth_at_provider_path(provider: :facebook) }
