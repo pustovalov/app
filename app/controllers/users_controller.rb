@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   def update
     if User.authenticate(current_user.email, params[:user][:password]) || current_user.external?
       if current_user.update(user_params)
-        params[:user][:new_password] ? current_user.change_password!(params[:user][:new_password]) : ""
+        current_user.change_password!(params[:user][:new_password]) if params[:user][:new_password]
         flash[:success] = "Success"
         redirect_to settings_path
       else
