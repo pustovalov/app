@@ -29,12 +29,4 @@ describe "Settings" do
     click_button "Change"
     expect(page).to have_content "Wrong password"
   end
-
-  # scenario "change password" do
-  #   click_link "Change Password"
-  #   fill_in "user_password", with: password
-  #   fill_in "user_new_password", with: "newpassword"
-  #   click_button "Change"
-  #   expect(page).to have_content "Password was successfully updated."
-  # end
 end
