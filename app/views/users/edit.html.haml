@@ -1,9 +1,6 @@
 = simple_form_for current_user do |f|
-  - if params[:change] == "email"
-    = f.input :email, label: "Email"
-    = f.input :password, label: "Password"
-  - else
-    - if current_user.crypted_password
-      = f.input :password, label: "Current password"
-    = f.input :new_password, label: "New Password", required: true
+  = f.input :email, label: "Email", input_html: { value: current_user.email }
+  = f.input :password, label: "Password", required: true
+  = f.input :new_password, label: "New Password"
+  = f.input :locale, as: :select, collection: I18n.available_locales, include_blank: false, label: "Language"
   = f.button :submit, value: "Change"
