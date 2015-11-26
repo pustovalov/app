@@ -3,4 +3,4 @@
   = f.input :password, required: true
   = f.input :new_password
   = f.input :locale, as: :select, collection: I18n.available_locales, include_blank: false
-  = f.button :submit
+  = f.button :submit, value: t("change")

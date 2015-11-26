@@ -16,7 +16,7 @@ describe "Settings" do
     click_link "Change Information"
     fill_in "user_email", with: "someemail@gmail.com"
     fill_in "user_password", with: password
-    select("ru", from: "user_locale")
+    select("English", from: "user_locale")
     click_button "Change"
     expect(page).to have_content "Success"
   end
@@ -25,7 +25,7 @@ describe "Settings" do
     click_link "Change Information"
     fill_in "user_email", with: "someemail@gmail.com"
     fill_in "user_password", with: "1312"
-    select("ru", from: "user_locale")
+    select("English", from: "user_locale")
     click_button "Change"
     expect(page).to have_content "Wrong password"
   end

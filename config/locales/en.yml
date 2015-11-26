@@ -22,6 +22,8 @@ en:
   email: "Email"
   language: "Language"
   change_information: "Change Information"
+  change: "Change"
+  make_current: "Make current"
 
   helpers:
     submit:
@@ -33,20 +35,26 @@ en:
         update: "Log in"
 
   cards:
-    edit: "Edit Card"
-    new: "New Card"
-    zero: "You don't have enough words. Add them via \"Add card\""
+    edit:
+      title: "Edit Card"
+    new:
+      title: "New Card"
 
   decks:
-    edit: "Edit Deck"
-    new: "New Deck"
-    add: "Add Deck"
-    current: "Current deck"
+    edit:
+      title: "Edit Deck"
+    new:
+      title: "New Deck"
+    index:
+      add: "Add Deck"
+      current: "Current deck"
 
   main:
     original_text: "Original word"
     word_user: "You wrote"
     typos: "Typos"
+    index:
+      zero: "You don't have enough words. Add them via \"Add card\""
 
   notifications_mailer:
     pending_cards:
@@ -63,6 +71,40 @@ en:
       title: "Choose a new password"
     new:
       title: "Reset Password"
+
+  language_list:
+    description: "Languages"
+    ru: "RU"
+    en: "EN"
+
+  simple_form:
+    "yes": 'Yes'
+    "no": 'No'
+    required:
+      text: 'required'
+      mark: '*'
+    error_notification:
+      default_message: "Please review the problems below:"
+
+    labels:
+      defaults:
+        name: "Name"
+        email: "Email"
+        password: "Password"
+        new_password: "New Password"
+        locale: "Language"
+        original_text: "Word"
+        translated_text: "Translation"
+        deck: "Deck"
+        image: "Image"
+        review_date: "Review Date"
+
+    options:
+      user:
+        locale:
+          en: "English"
+          ru: "Russian"
+
 
   notifications:
     correct: "Correct"

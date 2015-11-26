@@ -33,7 +33,7 @@ class Card < ActiveRecord::Base
 
   def check_original_and_translated_text
     if original_text == translated_text
-      errors.add(:translated_text, t("notifications.must_different"))
+      errors.add(:translated_text, I18n.t("notifications.must_different"))
     end
   end
 

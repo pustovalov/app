@@ -11,10 +11,10 @@ class MainController < ApplicationController
       flash[:notice] = t("notifications.correct")
     else
       flash[:error] = %(Wrong:
-                         #{ t("main.original_text") }: #{@card.original_text}
-                         #{ t("translation") }: #{@card.translated_text}
-                         #{ t("main.word_user") }: #{translated_text}
-                         #{ t("main.typos") }: #{check[:typos]}
+                         #{t('main.original_text')}: #{@card.original_text}
+                         #{t('translation')}: #{@card.translated_text}
+                         #{t('main.word_user')}: #{translated_text}
+                         #{t('main.typos')}: #{check[:typos]}
                       )
     end
     redirect_to action: "index"
