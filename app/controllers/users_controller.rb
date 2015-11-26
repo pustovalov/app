@@ -26,14 +26,14 @@ class UsersController < ApplicationController
     if User.authenticate(current_user.email, params[:user][:password]) || current_user.external?
       if current_user.update(user_params)
         current_user.change_password!(params[:user][:new_password]) if params[:user][:new_password]
-        flash[:success] = "Success"
+        flash[:success] = t("notifications.uccess")
         redirect_to settings_path
       else
-        flash[:error] = "Try again"
+        flash[:error] = t("notifications.try_again")
         redirect_to :back
       end
     else
-      flash[:error] = "Wrong password"
+      flash[:error] = t("notifications.password_wrong")
       redirect_to :back
     end
   end

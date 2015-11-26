@@ -10,10 +10,9 @@
             .card-image
               = image_tag @card.image.url(:medium)
             = f.input :translated_text,
-                      label: "Translation",
                       input_html: { value: ""}
           .form-group
-            = f.button :submit, value: "Check", class: "ac-check-submit"
+            = f.button :submit, value: t("check"), class: "ac-check-submit"
 - else
   %h2
-    You don't have enough words. Add them via "Add card"
+    = t("cards.zero")

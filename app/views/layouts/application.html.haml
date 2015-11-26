@@ -22,12 +22,11 @@
           - if current_user
             %ul.nav.navbar-nav
               %li
-                = link_to "All cards", cards_path
+                = link_to t("nav_all_card"), cards_path
               %li
-                = link_to "Decks", decks_path
+                = link_to t("nav_decks"), decks_path
               %li
-                = link_to "Add card", new_card_path
-
+                = link_to t("nav_add_card"), new_card_path
 
           %ul.nav.navbar-nav.navbar-right
             - if current_user
@@ -36,15 +35,15 @@
                   %p.navbar-text
                     = current_user.email
               %li
-                = link_to "Settings", settings_path
+                = link_to t("nav_settings"), settings_path
               %li
-                = link_to "Log Out", log_out_path, method: :delete
+                = link_to t("nav_log_out"), log_out_path, method: :delete
 
             - else
               %li
-                = link_to "Sign Up", sign_up_path
+                = link_to t("nav_sign_up"), sign_up_path
               %li
-                = link_to "Log In", log_in_path
+                = link_to t("log_in"), log_in_path
 
 
     .container

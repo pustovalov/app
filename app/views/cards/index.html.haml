@@ -7,19 +7,19 @@
             = card.original_text
           %p
             %strong
-              Translation:
+              #{t("word")}:
             = card.translated_text
           .card-image
             = image_tag card.image.url(:medium)
           - if card.deck
             %p
               %strong
-                Deck:
+                #{t("deck")}:
               = card.deck.name
           %p
             %strong
-              Review Date:
+              #{t("review_date")}:
             = card.review_date.strftime("%d/%m/%Y")
           .buttons
-            = link_to "Edit", edit_card_path(card), class: "btn btn-sm btn-default"
-            = link_to "Delete", card_path(card), class: "btn btn-sm btn-danger", method: :delete
+            = link_to t("edit"), edit_card_path(card), class: "btn btn-sm btn-default"
+            = link_to t("delete"), card_path(card), class: "btn btn-sm btn-danger", method: :delete

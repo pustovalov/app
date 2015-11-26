@@ -2,7 +2,7 @@
   .col-md-12
     %a.btn.btn-default{ href: new_deck_path }
       %span.glyphicon.glyphicon-plus
-      Add Deck
+      = t("decks.add")
 
 .row.grid
   - @decks.each do |deck|
@@ -13,7 +13,7 @@
             = deck.name
           - if deck.current?
             %p
-              Current deck
+              = t("decks.current")
 
           .buttons
             = link_to "Edit", edit_deck_path(deck), class: "btn btn-sm btn-default"

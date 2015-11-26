@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
 private
 
   def not_authenticated
-    flash[:warning] = "You have to authenticate to access this page."
+    flash[:warning] = t("notifications.access")
     redirect_to log_in_path
   end
 end

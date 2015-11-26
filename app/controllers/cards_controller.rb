@@ -36,7 +36,7 @@ class CardsController < ApplicationController
   def check_deck
     @deck = Deck.find_by(id: params[:card][:deck])
     if !@deck
-      flash[:error] = "Deck can't be blank"
+      flash[:error] = t("notifications.decks.blank")
       redirect_to new_card_path
     end
   end
