@@ -1,18 +1,20 @@
 .row
   .container
     %h2
-      Settings
+      = t("settings")
 
     - if current_user.email
       %h3
-        Email:
+        #{ t("email") }:
         %strong
           #{current_user.email}
 
-    .btn-group
-      %a.btn.btn-default{ href: edit_user_path(current_user, change: "email") }
-        = current_user.email ? "Change Email" : "Set Email"
+    %h3
+      #{ t("language") }:
+      %strong
+        #{current_user.locale}
 
-      %a.btn.btn-default{ href: edit_user_path(current_user, change: "password") }
-        = current_user.crypted_password ? "Change Password" : "Set Password"
+    .btn-group
+      %a.btn.btn-default{ href: edit_user_path(current_user) }
+        = t("change_information")
 

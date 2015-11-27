@@ -188,7 +188,11 @@ CREATE TABLE users (
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
     salt character varying,
-    crypted_password character varying
+    crypted_password character varying,
+    locale text DEFAULT 'en'::text NOT NULL,
+    reset_password_token character varying,
+    reset_password_token_expires_at timestamp without time zone,
+    reset_password_email_sent_at timestamp without time zone
 );
 
 
@@ -308,6 +312,13 @@ CREATE INDEX index_users_on_email ON users USING btree (email);
 
 
 --
+-- Name: index_users_on_reset_password_token; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_users_on_reset_password_token ON users USING btree (reset_password_token);
+
+
+--
 -- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -345,4 +356,8 @@ INSERT INTO schema_migrations (version) VALUES ('20151111094037');
 INSERT INTO schema_migrations (version) VALUES ('20151111114118');
 
 INSERT INTO schema_migrations (version) VALUES ('20151112070524');
+
+INSERT INTO schema_migrations (version) VALUES ('20151118084852');
+
+INSERT INTO schema_migrations (version) VALUES ('20151120075847');
 

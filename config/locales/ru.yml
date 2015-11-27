@@ -1,0 +1,126 @@
+ru:
+  nav_all_card: "Все карточки"
+  nav_decks: "Колоды"
+  nav_add_card: "Добавить карточку"
+  nav_settings: "Настройки"
+  nav_log_out: "Выйти"
+  nav_sign_up: "Зарегистрироваться"
+  log_in: "Войти"
+  translation: "Перевод"
+  edit: "Редактировать"
+  delete: "Удалить"
+  word: "Слово"
+  deck: "Колода"
+  review_date: "Дата пересмотра"
+  forgot_password: "Забыл свой пароль?"
+  check: "Проверить"
+  set_password: "Установить пароль"
+  new_password: "Новый пароль"
+  send_reset_guide: "Отправить инструкцию по сбросу"
+  registration: "Регистрация"
+  settings: "Настройки"
+  email: "Email"
+  language: "Язык"
+  change_information: "Изменить данные"
+  change: "Изменить"
+  make_current: "Сделать текущей"
+
+  helpers:
+    submit:
+      create: "Добавить"
+      update: "Обновить"
+
+      user:
+        create: "Зарегистрироваться"
+        update: "Войти"
+
+  cards:
+    edit:
+      title: "Редактировать карточку"
+    new:
+      title: "Новая карточка"
+
+  decks:
+    edit:
+      title: "Редактировать колоду"
+    new:
+      title: "Новая колода"
+    index:
+      add: "Добавить колоду"
+      current: "Текущая колода"
+
+  main:
+    original_text: "Слово"
+    word_user: "Ты написал"
+    typos: "Ошибки"
+    index:
+      zero: "У тебя не достаточно слов. Добавь карточку с помощью \"Добавить карточку\""
+
+  notifications_mailer:
+    pending_cards:
+      text: "У тебя есть слова на проверку"
+      link: "Нажми сюда."
+
+  user_mailer:
+    reset_password_email:
+      title: "Вы запросили сброс пароля."
+      text: "Чтобы изменить пароль, нажми на эту ссылку:"
+
+  password_resets:
+    edit:
+      title: "Задай новый пароль"
+    new:
+      title: "Сброс пароля"
+
+  language_list:
+    description: "Языки"
+    ru: "Русский"
+    en: "Английский"
+
+  simple_form:
+    "yes": "Да"
+    "no": "Нет"
+    required:
+      text: "Обязательное поле"
+      mark: "*"
+
+    error_notification:
+      default_message: "Пожалуйста, ознакомьтесь с проблемами ниже:"
+
+    labels:
+      defaults:
+        name: "Имя"
+        email: "Email"
+        password: "Пароль"
+        new_password: "Новый пароль"
+        locale: "Язык"
+        original_text: "Слово"
+        translated_text: "Перевод"
+        deck: "Колода"
+        image: "Изображение"
+        review_date: "Дата пересмотра"
+
+    options:
+      user:
+        locale:
+          en: "Английский"
+          ru: "Русский"
+
+  notifications:
+    correct: "Правильно"
+    success: "Успех"
+    try_again: "Попробуй еще"
+    password_wrong: "Не правильный пароль"
+    password_updated: "Пароль изменене."
+    access: "Нужно сначала войти."
+    login_success: "Вошел с помощью"
+    login_failed: "Не удалось войти с помощью"
+    email_sent: "Инструция отправлена на твой email."
+    welcome_back: "Добро пожаловать!"
+    email_password_incorrect: "E-mail и/или пароль не правильный."
+    bye: "Пока!"
+    must_different: "Должны быть разными"
+
+    decks:
+      blank: "Колода не может быть пустой"
+      not_save: "Что-то не так"

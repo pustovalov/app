@@ -8,13 +8,13 @@ class MainController < ApplicationController
     translated_text = params[:card][:translated_text]
     check = @card.check_translation(translated_text)
     if check[:success]
-      flash[:notice] = "Correct"
+      flash[:notice] = t("notifications.correct")
     else
       flash[:error] = %(Wrong:
-                         Original word: #{@card.original_text}
-                         Translation: #{@card.translated_text}
-                         You wrote: #{translated_text}
-                         Typos: #{check[:typos]}
+                         #{t('main.original_text')}: #{@card.original_text}
+                         #{t('translation')}: #{@card.translated_text}
+                         #{t('main.word_user')}: #{translated_text}
+                         #{t('main.typos')}: #{check[:typos]}
                       )
     end
     redirect_to action: "index"

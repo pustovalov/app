@@ -1,23 +1,127 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  nav_all_card: "All cards"
+  nav_decks: "Decks"
+  nav_add_card: "Add card"
+  nav_settings: "Settings"
+  nav_log_out: "Log Out"
+  nav_sign_up: "Sign Up"
+  log_in: "Log In"
+  translation: "Translation"
+  edit: "Edit"
+  delete: "Delete"
+  word: "Word"
+  deck: "Deck"
+  review_date: "Review Date"
+  forgot_password: "Forgot your password?"
+  check: "Check"
+  set_password: "Set password"
+  new_password: "New password"
+  send_reset_guide: "Send reset instructions"
+  registration: "Registration"
+  settings: "Settings"
+  email: "Email"
+  language: "Language"
+  change_information: "Change Information"
+  change: "Change"
+  make_current: "Make current"
+
+  helpers:
+    submit:
+      create: "Add"
+      update: "Update"
+
+      user:
+        create: "Sign up"
+        update: "Log in"
+
+  cards:
+    edit:
+      title: "Edit Card"
+    new:
+      title: "New Card"
+
+  decks:
+    edit:
+      title: "Edit Deck"
+    new:
+      title: "New Deck"
+    index:
+      add: "Add Deck"
+      current: "Current deck"
+
+  main:
+    original_text: "Original word"
+    word_user: "You wrote"
+    typos: "Typos"
+    index:
+      zero: "You don't have enough words. Add them via \"Add card\""
+
+  notifications_mailer:
+    pending_cards:
+      text: "You have some words for review"
+      link: "Click here."
+
+  user_mailer:
+    reset_password_email:
+      title: "You have requested to reset your password."
+      text: "To choose a new password, just follow this link:"
+
+  password_resets:
+    edit:
+      title: "Choose a new password"
+    new:
+      title: "Reset Password"
+
+  language_list:
+    description: "Languages"
+    ru: "RU"
+    en: "EN"
+
+  simple_form:
+    "yes": 'Yes'
+    "no": 'No'
+    required:
+      text: 'required'
+      mark: '*'
+    error_notification:
+      default_message: "Please review the problems below:"
+
+    labels:
+      defaults:
+        name: "Name"
+        email: "Email"
+        password: "Password"
+        new_password: "New Password"
+        locale: "Language"
+        original_text: "Word"
+        translated_text: "Translation"
+        deck: "Deck"
+        image: "Image"
+        review_date: "Review Date"
+
+    options:
+      user:
+        locale:
+          en: "English"
+          ru: "Russian"
+
+
+  notifications:
+    correct: "Correct"
+    success: "Success"
+    try_again: "Try again"
+    password_wrong: "Wrong password"
+    password_updated: "Password was successfully updated."
+    access: "You have to authenticate to access this page."
+    login_success: "Logged in from"
+    login_failed: "Failed to login from"
+    email_sent: "Instructions have been sent to your email."
+    welcome_back: "Welcome back!"
+    email_password_incorrect: "E-mail and/or password is incorrect."
+    bye: "See you!"
+    must_different: "Must be different"
+
+    decks:
+      blank: "Deck can't be blank"
+      not_save: "Something wrong"
+

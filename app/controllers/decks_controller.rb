@@ -43,7 +43,7 @@ class DecksController < ApplicationController
     Deck.current.update_all(current: false)
     @deck.current = true
     if !@deck.save
-      flash[:error] = "Something wrong"
+      flash[:error] = t("notifications.decks.not_save")
     end
     redirect_to decks_path
   end

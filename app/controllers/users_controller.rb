@@ -23,27 +23,17 @@ class UsersController < ApplicationController
   end
 
   def update
-    password     = params[:user][:password]
-    new_password = params[:user][:new_password]
-    email        = params[:user][:email]
-
-    if User.authenticate(current_user.email, password) || current_user.external?
-      if email
-        current_user.password = password
-        current_user.email = email
-        current_user.save
-        flash[:success] = "Email was successfully updated."
+    if User.authenticate(current_user.email, params[:user][:password]) || current_user.external?
+      if current_user.update(user_params)
+        current_user.change_password!(params[:user][:new_password]) if params[:user][:new_password]
+        flash[:success] = t("notifications.success")
+        redirect_to settings_path
       else
-        if current_user.external? && email
-          current_user.email = email
-        end
-        current_user.password = new_password
-        current_user.save
-        flash[:success] = "Password was successfully updated."
+        flash[:error] = t("notifications.try_again")
+        redirect_to :back
       end
-      redirect_to settings_path
     else
-      flash[:error] = "Wrong password"
+      flash[:error] = t("notifications.password_wrong")
       redirect_to :back
     end
   end
@@ -51,6 +41,6 @@ class UsersController < ApplicationController
 private
 
   def user_params
-    params.require(:user).permit(:email, :password, :new_password)
+    params.require(:user).permit(:email, :password, :locale)
   end
 end

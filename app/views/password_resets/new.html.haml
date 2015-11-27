@@ -1,0 +1,6 @@
+%h1
+  = t(".title")
+
+= simple_form_for :user, url: password_resets_path do |f|
+  = f.input :email
+  = f.button :submit, value: t("send_reset_guide")
