@@ -2,19 +2,19 @@
   .row
     .col-md-6.col-md-offset-3
       .thumbnail.card
-        %h2
+        %h2.js-original-text
           = @card.original_text
-        = simple_form_for @card, html: { class: "js-check-form" }, url: check_path, method: "post"  do |f|
+        = simple_form_for @card, html: { class: "js-check-form" }, url: check_path, method: "post", remote: true do |f|
           .form-group
-            = f.input :original_text, as: :hidden
+            = f.input :original_text, input_html: { class: "js-original-text-val" }, as: :hidden
             .card-image
-              = image_tag @card.image.url(:medium)
+              = image_tag @card.image.url(:medium), class: "js-card-image"
             = f.input :translated_text,
-                      input_html: { value: ""}
+                      input_html: { value: "", class: "js-translated-text"}
 
             = f.input :time, as: :hidden, input_html: { class: "js-check-time" }
           .form-group
             = f.button :submit, value: t("check"), class: "ac-check-submit"
 - else
   %h2
-    = t(".zero")
+    = t("zero_cards")

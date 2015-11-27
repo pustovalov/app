@@ -24,6 +24,8 @@ en:
   change_information: "Change Information"
   change: "Change"
   make_current: "Make current"
+  wrong: "Wrong"
+  zero_cards: "You don't have enough words. Add them via \"Add card\""
 
   helpers:
     submit:
@@ -53,8 +55,6 @@ en:
     original_text: "Original word"
     word_user: "You wrote"
     typos: "Typos"
-    index:
-      zero: "You don't have enough words. Add them via \"Add card\""
 
   notifications_mailer:
     pending_cards:
