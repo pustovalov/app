@@ -4,13 +4,15 @@
       .thumbnail.card
         %h2
           = @card.original_text
-        = simple_form_for @card, url: check_path, method: "post"  do |f|
+        = simple_form_for @card, html: { class: "js-check-form" }, url: check_path, method: "post"  do |f|
           .form-group
             = f.input :original_text, as: :hidden
             .card-image
               = image_tag @card.image.url(:medium)
             = f.input :translated_text,
                       input_html: { value: ""}
+
+            = f.input :time, as: :hidden, input_html: { class: "js-check-time" }
           .form-group
             = f.button :submit, value: t("check"), class: "ac-check-submit"
 - else
