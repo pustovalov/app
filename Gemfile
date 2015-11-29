@@ -60,4 +60,4 @@ group :test do
 end
 
 # specify ruby version for heroku
-ruby "2.2.3"
+ruby "2.2.4"
