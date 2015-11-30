@@ -1,4 +1,12 @@
-class MainController < ApplicationController
+class Dashboard::MainController < ApplicationController
+  before_action :require_user
+
+  def require_user
+    unless current_user
+      redirect_to log_in
+    end
+  end
+
   def index
     @card = find_card
   end
