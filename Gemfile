@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.5'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -26,6 +26,7 @@ gem 'bugsnag'
 gem 'text'
 gem 'whenever', require: false
 gem 'http_accept_language'
+gem 'puma'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -36,6 +37,10 @@ gem 'http_accept_language'
 group :production do
   gem 'rails_12factor'
   gem 'newrelic_rpm'
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-puma'
 end
 
 group :development, :test do
