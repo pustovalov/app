@@ -12,6 +12,8 @@ class Card < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
   validates_attachment_file_name :image, matches: [/png\Z/, /jpe?g\Z/]
 
+  attr_accessor :time
+
   before_validation :sanitize_data
 
   scope :expired, -> {
@@ -37,14 +39,13 @@ class Card < ActiveRecord::Base
     end
   end
 
-  def check_translation(text)
+  def check_translation(text, time)
     check = Check.find_or_create_by(card: self)
     typos = Text::Levenshtein.distance(translated_text, text.mb_chars.strip.downcase!)
+    check.run(typos: typos, times_reviewed: check.times_reviewed, word_length: text.length, time: time, complexity: complexity)
     if typos.zero?
-      check.mark_correct!
       { success: true, typos: typos }
     else
-      check.mark_incorrect!
       { success: false, typos: typos }
     end
   end

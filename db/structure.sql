@@ -78,7 +78,8 @@ CREATE TABLE cards (
     image_content_type character varying,
     image_file_size integer,
     image_updated_at timestamp without time zone,
-    deck_id integer
+    deck_id integer,
+    complexity double precision DEFAULT 2.5 NOT NULL
 );
 
 
@@ -108,10 +109,8 @@ ALTER SEQUENCE cards_id_seq OWNED BY cards.id;
 CREATE TABLE checks (
     id integer NOT NULL,
     times_reviewed integer DEFAULT 0 NOT NULL,
-    losing_streak integer DEFAULT 0 NOT NULL,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
-    box integer DEFAULT 1 NOT NULL,
     card_id integer
 );
 
@@ -360,4 +359,6 @@ INSERT INTO schema_migrations (version) VALUES ('20151112070524');
 INSERT INTO schema_migrations (version) VALUES ('20151118084852');
 
 INSERT INTO schema_migrations (version) VALUES ('20151120075847');
+
+INSERT INTO schema_migrations (version) VALUES ('20151208145645');
 

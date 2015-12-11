@@ -26,24 +26,24 @@ describe Card do
   context "when check translation true" do
     it "should have success response" do
       card = build(:card)
-      expect(card.check_translation("You ")[:success]).to be true
+      expect(card.check_translation("You ", 1000)[:success]).to be true
     end
 
     it "should have 0 typos" do
       card = build(:card)
-      expect(card.check_translation("You ")[:typos]).to be 0
+      expect(card.check_translation("You ", 1000)[:typos]).to be 0
     end
   end
 
   context "when check translation false" do
     it "should have error" do
       card = build(:card)
-      expect(card.check_translation("dsdasddas")[:success]).to be false
+      expect(card.check_translation("dsdasddas", 1000)[:success]).to be false
     end
 
     it "should have typos" do
       card = build(:card)
-      expect(card.check_translation("dsdasddas")[:typos]).to be 9
+      expect(card.check_translation("dsdasddas", 1000)[:typos]).to be 9
     end
   end
 end

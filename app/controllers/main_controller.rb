@@ -6,7 +6,8 @@ class MainController < ApplicationController
   def check
     @card = Card.where(original_text: params[:card][:original_text]).take
     translated_text = params[:card][:translated_text]
-    check = @card.check_translation(translated_text)
+    time = params[:card][:time]
+    check = @card.check_translation(translated_text, time)
     if check[:success]
       flash[:notice] = t("notifications.correct")
     else
