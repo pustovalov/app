@@ -12,6 +12,26 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
 //= require bootstrap.min
+
+function fadeFlash() {
+  $(".alert-success").delay(5000).fadeOut("slow");
+  $(".alert-danger").delay(5000).fadeOut("slow");
+  $(".alert-warning").delay(5000).fadeOut("slow");
+}
+
+function showNotice(msg, type) {
+  $("#flash-message")
+    .html('<div class="alert fade in ' + type + '">' + msg + '</div>');
+  fadeFlash();
+}
+
+$(document).ajaxComplete(function(event, data) {
+    var msg   = data.responseJSON.notice.replace(/\n/g,"<br>"),
+        type  = data.responseJSON.type;
+
+    if (msg && type) {
+      showNotice(msg, type);
+    }
+});

@@ -9,7 +9,6 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'jquery-rails'
-gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'haml', '~> 4.0.7'
@@ -61,4 +60,4 @@ group :test do
 end
 
 # specify ruby version for heroku
-ruby "2.2.3"
+ruby "2.2.4"

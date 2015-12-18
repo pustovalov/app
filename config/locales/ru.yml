@@ -24,6 +24,15 @@ ru:
   change_information: "Изменить данные"
   change: "Изменить"
   make_current: "Сделать текущей"
+  wrong: "Не правильно"
+
+  activerecord:
+    errors:
+      models:
+        card:
+          attributes:
+            original_text:
+              taken: "Карточка с таким именем уже существует"
 
   helpers:
     submit:
