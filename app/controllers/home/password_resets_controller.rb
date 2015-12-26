@@ -1,4 +1,4 @@
-class PasswordResetsController < ApplicationController
+class Home::PasswordResetsController < ApplicationController
   skip_before_filter :require_login
 
   def new

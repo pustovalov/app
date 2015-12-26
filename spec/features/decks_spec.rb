@@ -15,7 +15,7 @@ describe "Decks" do
   end
 
   scenario "add new deck" do
-    click_link "Add Deck"
+    click_link "Add"
     fill_in "deck_name", with: "new deck"
     click_button "Add"
     expect(page).to have_content "new deck"

@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Home::UsersController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
 
   def new
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def settings
-    render template: "users/settings"
+    render template: "home/users/settings"
   end
 
   def edit
